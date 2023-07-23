@@ -70,6 +70,16 @@ app.post("/emv-rq", (req, res) => {
   // // Send the response
   // res.json(response);
 });
+app.get("/data", (req, res) => {
+  fs.readFile("./merchant_info.json", { encoding: "utf-8" }, (err, data) => {
+    if (err) {
+      console.log("error reading json file:", err);
+      res.sendStatus(500);
+      return;
+    }
+    res.json(JSON.parse(data));
+  });
+});
 
 // Start the server
 const port = 3000;
