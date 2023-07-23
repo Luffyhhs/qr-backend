@@ -50,9 +50,7 @@ function generateMerchantID() {
 
 // Read merchant data from JSON file
 
-const { merchants } = JSON.parse(
-  fs.readFileSync("client/src/assets/merchantDatas.json")
-);
+const { merchants } = JSON.parse(fs.readFileSync("sever/merchant_info.json"));
 
 // Generate QR Codes for each merchant
 merchants.forEach((merchant) => {
