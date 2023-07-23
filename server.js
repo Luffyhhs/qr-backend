@@ -11,7 +11,7 @@ app.post("/emv-rq", (req, res) => {
   // Extract data from the request
   const reqData = req.body;
   console.log(reqData);
-  const filePath = "sever/merchant_info.json";
+  const filePath = "./merchant_info.json";
 
   if (fs.existsSync(filePath)) {
     fs.readFile(filePath, { encoding: "utf-8" }, (err, data) => {
