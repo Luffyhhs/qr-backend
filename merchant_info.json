@@ -1,14 +1,1 @@
-{
-  "merchants": [
-    {
-      "merchantName": "Default",
-      "merchantCity": "City",
-      "merchantId": "12345",
-      "merchantAcc": "1234567890",
-      "merchantCategory": "Category",
-      "merchantSubCategory": "Sub Category",
-      "merchantCountry": "Country",
-      "merchantCurrency": "CURRENCY"
-    }
-  ]
-}
+{"merchants":[{"merchantName":"Default","merchantCity":"City","merchantId":"12345","merchantAcc":"1234567890","merchantCategory":"Category","merchantSubCategory":"Sub Category","merchantCountry":"Country","merchantCurrency":"CURRENCY"},{"merchantName":"Hein Htet","merchantCity":"Yangon","merchantId":"60939","merchantAcc":"28304092","merchantCategory":"Telegraph Services","merchantSubCategory":"sub-category2","merchantCountry":"Myanmar","merchantCurrency":"MMK"},{"merchantName":"Hein Htet","merchantCity":"Yangon","merchantId":"77005","merchantAcc":"294379","merchantCategory":"Telegraph Services","merchantSubCategory":"sub-category2","merchantCountry":"Myanmar","merchantCurrency":"MMK"},{"merchantName":"Thurein Soe","merchantCity":"Yangon","merchantId":"95595","merchantAcc":"0423932983","merchantCategory":"Telegraph Services","merchantSubCategory":"sub-category2","merchantCountry":"Myanmar","merchantCurrency":"MMK"}]}

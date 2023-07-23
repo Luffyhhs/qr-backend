@@ -6,6 +6,14 @@ const qr = require("./generateQR");
 const app = express();
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 // Handle EMV RQ requests
 app.post("/emv-rq", (req, res) => {
   // Extract data from the request
@@ -82,7 +90,7 @@ app.get("/data", (req, res) => {
 });
 
 // Start the server
-const port = 3000;
+const port = 8080;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
