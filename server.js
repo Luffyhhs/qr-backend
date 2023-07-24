@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const fs = require("fs");
-const qr = require("./generateQR");
+const generateQR = require("./generateQR");
 
 const app = express();
 app.use(bodyParser.json());
@@ -45,12 +45,17 @@ app.post("/emv-rq", (req, res) => {
               res.json({
                 message: "json file saved",
               });
+              // const merchantName = reqData[0].merchantName;
+              // const filePath = `./${merchantName
+              //   .replace(/\s/g, "_")
+              //   .toLowerCase()}_qr_code.png`;
+              // generateQRCodes(filePath);
+              // res.sendFile(filePath);
             }
           }
         );
       }
     });
-    // generateQRCode();
   } else {
     fs.writeFile(filePath, JSON.stringify({ merchants: reqData }), (err) => {
       if (err) {
@@ -60,14 +65,15 @@ app.post("/emv-rq", (req, res) => {
         res.json({
           message: "json file saved",
         });
+        // const merchantName = reqData[0].merchantName;
+        // const filePath = `./${merchantName
+        //   .replace(/\s/g, "_")
+        //   .toLowerCase()}_qr_code.png`;
+        // generateQRCodes();
+        // res.sendFile(filePath);
       }
     });
   }
-  // const qrImgPath = `././${merchantName
-  //   .replace(/\s/g, "_")
-  //   .toLowerCase()}_qr_code.png`;
-  // res.sendFile(qrImgPath);
-  // generateQRCode();
 
   // Process the EMV RQ data
   // Replace this with your own logic
@@ -91,7 +97,17 @@ app.get("/data", (req, res) => {
     res.json(JSON.parse(data));
   });
 });
-app.get("/qr", (req, res) => {});
+// app.get("/qr", (req, res) => {
+//   const { merchantName } = req.query;
+//   const filePath = `./${merchantName
+//     .replace(/\s/g, "_")
+//     .toLowerCase()}_qr_code.png`;
+//   if (fs.existsSync(filePath)) {
+//     res.sendFile(filePath);
+//   } else {
+//     res.sendStatus(404);
+//   }
+// });
 // Start the server
 const port = 8080;
 app.listen(port, () => {

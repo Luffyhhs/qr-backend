@@ -1,1 +1,14 @@
-{"merchants":[{"merchantName":"Default","merchantCity":"City","merchantId":"12345","merchantAcc":"1234567890","merchantCategory":"Category","merchantSubCategory":"Sub Category","merchantCountry":"Country","merchantCurrency":"CURRENCY"},{"merchantName":"Thu Rein Soe","merchantCity":"Yangon","merchantId":"66188","merchantAcc":"27493279","merchantCategory":"Cable, Satellite, and Other Pay Television Services","merchantSubCategory":"sub-category2","merchantCountry":"Myanmar","merchantCurrency":"MMK"},{"merchantName":"Hein Htet Soe","merchantCity":"Yangon","merchantId":"84816","merchantAcc":"32472378","merchantCategory":"Cable, Satellite, and Other Pay Television Services","merchantSubCategory":"sub-category2","merchantCountry":"Myanmar","merchantCurrency":" MMK"}]}
+{
+  "merchants": [
+    {
+      "merchantName": "Default",
+      "merchantCity": "City",
+      "merchantId": "12345",
+      "merchantAcc": "1234567890",
+      "merchantCategory": "Category",
+      "merchantSubCategory": "Sub Category",
+      "merchantCountry": "Country",
+      "merchantCurrency": "CURRENCY"
+    }
+  ]
+}

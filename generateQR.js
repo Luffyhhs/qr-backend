@@ -83,7 +83,7 @@ function generateQrCodes() {
       merchantInfo
     );
 
-    const fileName = `./${merchantName
+    const fileName = `../client/src/assets/${merchantName
       .replace(/\s/g, "_")
       .toLowerCase()}_qr_code.png`;
     const outputPath = fileName;
