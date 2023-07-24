@@ -48,48 +48,61 @@ function generateMerchantID() {
   return randomID;
 }
 
-// Read merchant data from JSON file
+//Function to generate QR codes for all merchants
+function generateQrCodes() {
+  // Read merchant data from JSON file
+  const { merchants } = JSON.parse(fs.readFileSync("./merchant_info.json"));
+  // Generate QR Codes for each merchant
+  merchants.forEach((merchant) => {
+    const pim = "00";
+    const merchantID = generateMerchantID();
+    const transactionAmount = "100.00";
+    const countryCode = "MM";
+    const mcc = "1234";
+    const currencyCode = "MMK";
+    const tipIndicator = "01";
+    const rfuEmvCo = "0000";
+    const merchantInfo = {
+      templateID: "26",
+      guid: "D840000000",
+    };
 
-const { merchants } = JSON.parse(fs.readFileSync("./merchant_info.json"));
+    const { merchantName, merchantCity } = merchant;
 
-// Generate QR Codes for each merchant
-merchants.forEach((merchant) => {
-  const pim = "00";
-  const merchantID = generateMerchantID();
-  const transactionAmount = "100.00";
-  const countryCode = "MM";
-  const mcc = "1234";
-  const currencyCode = "MMK";
-  const tipIndicator = "01";
-  const rfuEmvCo = "0000";
-  const merchantInfo = {
-    templateID: "26",
-    guid: "D840000000",
-  };
+    const payload = generatePayload(
+      pim,
+      merchantID,
+      transactionAmount,
+      merchantName,
+      merchantCity,
+      countryCode,
+      mcc,
+      currencyCode,
+      tipIndicator,
+      rfuEmvCo,
+      merchantInfo
+    );
 
-  const { merchantName, merchantCity } = merchant;
+    const fileName = `../client/src/assets/${merchantName
+      .replace(/\s/g, "_")
+      .toLowerCase()}_qr_code.png`;
+    const outputPath = fileName;
+    generateQRCode(payload, outputPath);
 
-  const payload = generatePayload(
-    pim,
-    merchantID,
-    transactionAmount,
-    merchantName,
-    merchantCity,
-    countryCode,
-    mcc,
-    currencyCode,
-    tipIndicator,
-    rfuEmvCo,
-    merchantInfo
-  );
+    console.log(`QR Code generated for ${merchantName}`);
+  });
+}
 
-  const fileName = `./${merchantName
-    .replace(/\s/g, "_")
-    .toLowerCase()}_qr_code.png`;
-  const outputPath = fileName;
-  generateQRCode(payload, outputPath);
+//function initial call
+generateQrCodes();
 
-  console.log(`QR Code generated for ${merchantName}`);
+// Watch for changes in the "merchant_info.json" file and regenerate QR codes when it is updated
+fs.watchFile("./merchant_info.json", (current, previous) => {
+  // Check if the file was modified
+  if (current.mtime !== previous.mtime) {
+    console.log(
+      "merchant_info.json has been updated. Regenerating QR codes..."
+    );
+    generateQRCodes();
+  }
 });
-
-module.exports = { generateQRCode };

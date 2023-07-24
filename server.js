@@ -62,9 +62,12 @@ app.post("/emv-rq", (req, res) => {
         });
       }
     });
-
-    // generateQRCode();
   }
+  // const qrImgPath = `././${merchantName
+  //   .replace(/\s/g, "_")
+  //   .toLowerCase()}_qr_code.png`;
+  // res.sendFile(qrImgPath);
+  // generateQRCode();
 
   // Process the EMV RQ data
   // Replace this with your own logic
@@ -88,7 +91,7 @@ app.get("/data", (req, res) => {
     res.json(JSON.parse(data));
   });
 });
-
+app.get("/qr", (req, res) => {});
 // Start the server
 const port = 8080;
 app.listen(port, () => {
