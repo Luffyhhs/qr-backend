@@ -1,14 +1,1 @@
-{
-  "merchants": [
-    {
-      "merchantName": "Default",
-      "merchantCity": "City",
-      "merchantId": "12345",
-      "merchantAcc": "1234567890",
-      "merchantCategory": "Category",
-      "merchantSubCategory": "Sub Category",
-      "merchantCountry": "Country",
-      "merchantCurrency": "CURRENCY"
-    }
-  ]
-}
+{"merchants":[{"merchantName":"Default","merchantCity":"City","merchantId":"12345","merchantAcc":"1234567890","merchantCategory":"Category","merchantSubCategory":"Sub Category","merchantCountry":"Country","merchantCurrency":"CURRENCY"},{"merchantName":"Hein Htet","merchantCity":"Yangon","merchantId":"89637","merchantAcc":"3749123","merchantCategory":"Telecommunication Equipment and Telephone Sales","merchantSubCategory":"sub-category1","merchantCountry":"Myanmar","merchantCurrency":"MMK"}]}

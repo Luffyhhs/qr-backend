@@ -1,5 +1,6 @@
 const fs = require("fs");
 const qr = require("qrcode");
+const upload = require("./upload");
 
 // Generate Payload
 function generatePayload(
@@ -33,9 +34,9 @@ function generatePayload(
 }
 
 // Generate QR Code
-function generateQRCode(payload, outputPath) {
-  const writeStream = fs.createWriteStream(outputPath);
-  const qrCode = qr.toFileStream(writeStream, payload);
+async function generateQRCode(payload, outputPath) {
+  const writeStream = await fs.createWriteStream(outputPath);
+  const qrCode = await qr.toFileStream(writeStream, payload);
   // qrCode.pipe(writeStream);
   writeStream.on("finish", () => {
     console.log(`QR code saved: ${outputPath}`);
@@ -49,9 +50,11 @@ function generateMerchantID() {
 }
 
 //Function to generate QR codes for all merchants
-function generateQrCodes() {
+async function generateQrCodes() {
   // Read merchant data from JSON file
-  const { merchants } = JSON.parse(fs.readFileSync("./merchant_info.json"));
+  const { merchants } = await JSON.parse(
+    fs.readFileSync("./merchant_info.json")
+  );
   // Generate QR Codes for each merchant
   merchants.forEach((merchant) => {
     const pim = "00";
@@ -83,7 +86,7 @@ function generateQrCodes() {
       merchantInfo
     );
 
-    const fileName = `../client/src/assets/${merchantName
+    const fileName = `./img/${merchantName
       .replace(/\s/g, "_")
       .toLowerCase()}_qr_code.png`;
     const outputPath = fileName;
@@ -95,7 +98,7 @@ function generateQrCodes() {
 
 //function initial call
 generateQrCodes();
-
+upload.uploadImagesInFolder(`./img`);
 // Watch for changes in the "merchant_info.json" file and regenerate QR codes when it is updated
 fs.watchFile("./merchant_info.json", (current, previous) => {
   // Check if the file was modified
@@ -104,5 +107,6 @@ fs.watchFile("./merchant_info.json", (current, previous) => {
       "merchant_info.json has been updated. Regenerating QR codes..."
     );
     generateQRCodes();
+    upload.uploadImagesInFolder(`./img`);
   }
 });
