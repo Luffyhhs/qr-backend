@@ -98,7 +98,7 @@ async function generateQrCodes() {
 
 //function initial call
 generateQrCodes();
-upload.uploadImagesInFolder(`./img`);
+// upload.uploadImagesInFolder(`./img`);
 // Watch for changes in the "merchant_info.json" file and regenerate QR codes when it is updated
 fs.watchFile("./merchant_info.json", (current, previous) => {
   // Check if the file was modified
@@ -107,6 +107,6 @@ fs.watchFile("./merchant_info.json", (current, previous) => {
       "merchant_info.json has been updated. Regenerating QR codes..."
     );
     generateQRCodes();
-    upload.uploadImagesInFolder(`./img`);
+    // upload.uploadImagesInFolder(`./img`);
   }
 });
