@@ -1,1 +1,14 @@
-{"merchants":[{"merchantName":"Default","merchantCity":"City","merchantId":"12345","merchantAcc":"1234567890","merchantCategory":"Category","merchantSubCategory":"Sub Category","merchantCountry":"Country","merchantCurrency":"CURRENCY"},{"merchantName":"Hein Htet","merchantCity":"Yangon","merchantId":"89637","merchantAcc":"3749123","merchantCategory":"Telecommunication Equipment and Telephone Sales","merchantSubCategory":"sub-category1","merchantCountry":"Myanmar","merchantCurrency":"MMK"},{"merchantName":"Thurein soe","merchantCity":"Yangon","merchantId":"97102","merchantAcc":"90432u","merchantCategory":"Computer Network/Information Services","merchantSubCategory":"sub-category2","merchantCountry":"Myanmar","merchantCurrency":"MMK"},{"merchantName":"Thurein ","merchantCity":"Yangon","merchantId":"25437","merchantAcc":"9234982","merchantCategory":"Cable, Satellite, and Other Pay Television Services","merchantSubCategory":"sub-category2","merchantCountry":"Myanmar","merchantCurrency":"MMK"}]}
+{
+  "merchants": [
+    {
+      "merchantName": "Default",
+      "merchantCity": "City",
+      "merchantId": "12345",
+      "merchantAcc": "1234567890",
+      "merchantCategory": "Category",
+      "merchantSubCategory": "Sub Category",
+      "merchantCountry": "Country",
+      "merchantCurrency": "CURRENCY"
+    }
+  ]
+}
