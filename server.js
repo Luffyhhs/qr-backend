@@ -90,11 +90,6 @@ app.post("/emv-rq", (req, res) => {
   // res.json(response);
 });
 app.get("/data", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
   fs.readFile("./merchant_info.json", { encoding: "utf-8" }, (err, data) => {
     if (err) {
       console.log("error reading json file:", err);
